@@ -18,6 +18,7 @@ class BookingService {
       //   return flight.data.data;
 
       const flightData = response.data.data;
+      console.log(flightData);
       let priceOfTheFlight = flightData.price;
       if (data.noOfSeats > flightData.totalSeats) {
         throw new ServiceError(
@@ -45,6 +46,19 @@ class BookingService {
         throw error;
       }
       throw new ServiceError();
+    }
+  }
+
+  async deleteBooking(data) {
+    const flightId = data.flightId;
+
+    try {
+      //Fetch the booking to retrieve flightId and noOfSeats
+      const booking = await this.bookingRepository.delete(flightId);
+      return booking;
+    } catch (error) {
+      console.log("Can't able to delete this booking");
+      throw error;
     }
   }
 }
