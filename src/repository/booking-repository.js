@@ -40,23 +40,23 @@ class BookingRepository {
     }
   }
 
-  async delete(flightId) {
-    try {
-      const booking = await Booking.destroy({
-        where: {
-          id: flightId,
-        },
-      });
-      return true;
-    } catch (error) {
-      throw new AppError(
-        "RepositoryError",
-        "Cannot delete Booking",
-        "There was some issue deleting a booking, Please try again later",
-        StatusCodes.INTERNAL_SERVER_ERROR
-      );
-    }
-  }
+  // async delete(flightId) {
+  //   try {
+  //     const booking = await Booking.destroy({
+  //       where: {
+  //         id: flightId,
+  //       },
+  //     });
+  //     return true;
+  //   } catch (error) {
+  //     throw new AppError(
+  //       "RepositoryError",
+  //       "Cannot delete Booking",
+  //       "There was some issue deleting a booking, Please try again later",
+  //       StatusCodes.INTERNAL_SERVER_ERROR
+  //     );
+  //   }
+  // }
 }
 
 module.exports = BookingRepository;

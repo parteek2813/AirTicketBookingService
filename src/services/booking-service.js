@@ -49,18 +49,48 @@ class BookingService {
     }
   }
 
-  async deleteBooking(data) {
-    const flightId = data.flightId;
+  // async deleteBooking(data) {
+  //   try {
+  //     const flightId = data.flightId;
+  //     const getFlightRequestUrl = `${FLIGHT_SERVICE_PATH}/api/v1/flights/${flightId}`;
+  //     const response = await axios.get(getFlightRequestUrl);
 
-    try {
-      //Fetch the booking to retrieve flightId and noOfSeats
-      const booking = await this.bookingRepository.delete(flightId);
-      return booking;
-    } catch (error) {
-      console.log("Can't able to delete this booking");
-      throw error;
-    }
-  }
+  //     const flightData = response.data.data;
+
+  //     //bookingPayload = data = object - {flightId}
+  //     const bookingPayload = { ...data };
+
+  //     const booking = await this.bookingRepository.delete(
+  //       bookingPayload.flightId
+  //     );
+  //     const updateFlightRequestUrl = `${FLIGHT_SERVICE_PATH}/api/v1/flights/${booking.flightId}`;
+
+  //     await axios.patch(updateFlightRequestUrl, {
+  //       totalSeats: flightData.totalSeats - booking.noOfSeats,
+  //     });
+
+  //     const finalBooking = await this.bookingRepository.update(booking.id, {
+  //       status: "Booked",
+  //     });
+  //     return finalBooking;
+  //   } catch (error) {
+  //     console.log(error);
+  //     if (error.name == "RepositoryError" || error.name == "ValidationError") {
+  //       throw error;
+  //     }
+  //     throw new ServiceError();
+  //   }
+
+  //   // try {
+  //   //   //Fetch the booking to retrieve flightId and noOfSeats
+  //   //   const booking = await this.bookingRepository.delete(flightId);
+  //   //   return booking;
+
+  //   // } catch (error) {
+  //   //   console.log("Can't able to delete this booking");
+  //   //   throw error;
+  //   // }
+  // }
 }
 
 module.exports = BookingService;
