@@ -14,8 +14,8 @@ This repository contains the backend code for an airline booking service. It pro
 - Node.js: JavaScript runtime environment.
 - Express.js: Web application framework.
 - MongoDB: NoSQL database for storing flight and user information.
-- Mongoose: Object Data Modeling (ODM) library for MongoDB.
+- Sequelize Mysql: For handling database.
 - JWT: JSON Web Tokens for user authentication and authorization.
-- Stripe: Payment processing integration.
+- RabbitMq: For handling the message queues in action.
 - Nodemailer: Sending email notifications.
 - Jest: JavaScript testing framework.
